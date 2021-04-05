@@ -29,7 +29,8 @@ class CreateGroupTable extends Migration
             $table->collation = 'utf8_general_ci';
             $table->engine = 'InnoDB';
 
-            $table->index(['group_id', 'is_delete', 'is_top', 'updated_at'], 'idx_group_id_is_delete_is_top_updated_at');
+            $table->index(['creator_id'], 'idx_creator_id');
+            $table->index(['is_dismiss'], 'idx_is_dismiss');
         });
 
         $prefix = config('databases.default.prefix');
